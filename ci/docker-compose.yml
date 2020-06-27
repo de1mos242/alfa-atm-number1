@@ -11,9 +11,5 @@ services:
       context: ..
       dockerfile: ci/Dockerfile
     command: bash -c 'while !</dev/tcp/db/5432; do sleep 1; done; ./gradlew check -i'
-    environment:
-      SPRING_DATASOURCE_URL: "jdbc:postgresql://db:5432/appdb"
-      SPRING_DATASOURCE_USERNAME: "postgres"
-      SPRING_DATASOURCE_PASSWORD: "qwerty"
     depends_on:
       - alfa-battle-task1-websocket
