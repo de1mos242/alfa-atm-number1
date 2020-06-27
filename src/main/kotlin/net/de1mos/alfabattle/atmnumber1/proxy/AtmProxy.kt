@@ -9,7 +9,7 @@ import org.springframework.web.client.RestTemplate
 
 data class PostAddress(val city: String, val location: String, val mode: String)
 data class Coordinates(val latitude: String?, val longitude: String?)
-data class Services(val payments: String)
+data class Services(val payments: String?)
 data class AtmDetails(val address: PostAddress, val deviceId: Int, val coordinates: Coordinates, val services: Services, val availablePaymentSystems: List<String>)
 
 data class BankAtmDetails(val atms: List<AtmDetails>)
