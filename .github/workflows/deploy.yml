@@ -1,0 +1,23 @@
+name: Deploy image
+
+on:
+  push:
+    tags: [v*]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v2
+        
+      - name: Set env
+        run: echo ::set-env name=RELEASE_VERSION::${GITHUB_REF:11}
+        
+      - uses: jerray/publish-docker-action@master
+        with:
+          username: ${{ secrets.DOCKER_REGISTRY_USERNAME }}
+          password: ${{ secrets.WORKFLOW_SECRET }}
+          registry: docker.pkg.github.com
+          repository: de1mos242/alfa-atm-number1/project-image
+          auto_tag: true
