@@ -16,4 +16,4 @@ services:
       SPRING_DATASOURCE_USERNAME: "postgres"
       SPRING_DATASOURCE_PASSWORD: "qwerty"
     depends_on:
-      - db
+      - alfa-battle-task1-websocket
