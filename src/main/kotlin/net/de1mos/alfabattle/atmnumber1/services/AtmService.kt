@@ -12,7 +12,7 @@ class AtmService(private val atmProxy: AtmProxy) {
     fun getAtmById(deviceId: Int): Optional<GetAtmByIdResponse> {
         val atms = getAtms()
         val atm = atms.data.atms.stream().filter() { it.deviceId == deviceId }.findFirst()
-        return atm.map { GetAtmByIdResponse(it.address.city, it.deviceId, it.coordinates.latitude, it.address.location, it.coordinates.longitude, it.services.payments.isNotEmpty()) }
+        return atm.map { GetAtmByIdResponse(it.address.city, it.deviceId, it.coordinates.latitude, it.address.location, it.coordinates.longitude, it.availablePaymentSystems.isNotEmpty()) }
     }
 
     private fun getAtms(): AtmResponse {
