@@ -7,5 +7,5 @@ data class GetAtmByIdResponse(val city:String,
                               val latitude: String?,
                               val location: String?,
                               val longitude: String?,
-                              val payments: Boolean)
+                              val payments: String)
 
